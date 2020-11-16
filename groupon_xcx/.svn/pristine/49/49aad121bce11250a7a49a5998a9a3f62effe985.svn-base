@@ -1,0 +1,244 @@
+<!--index.wxml-->
+  <view class="main">
+    <view class="banner-box">
+      <swiper class='banner' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        <block wx:for="{{imgBanner}}" wx:key="">
+          <swiper-item>
+            <image src="{{item.path}}" class="slide-image"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="top_left active {{style_class}}">
+      <text>来自尾号 一秒前发起了拼单</text>
+      <view class="navigator-arrow"></view>
+    </view>
+    <view class="but-list">
+        <view class="li">
+          <image mode="widthFix" class="image" src="/image/but-list1.png"></image>
+          <text class="span">工厂直销</text> 
+        </view>
+        <view class="li">
+          <image mode="widthFix" class="image" src="/image/but-list1.png"></image>
+          <text class="span">优惠空前</text> 
+        </view>
+        <view class="li">
+          <image mode="widthFix" class="image" src="/image/but-list1.png"></image>
+          <text class="span">安装保障</text> 
+        </view>
+        <view class="li">
+          <image mode="widthFix" class="image" src="/image/but-list1.png"></image>
+          <text class="span">售后保障</text> 
+        </view>
+    </view>
+    <view class="selected-list">
+      <view class="h5">
+        <text class="i"></text>
+        <text class="txt">工厂直销 · 千人团</text>
+      </view>
+      <block wx:for="{{item_list_0}}" wx:key="">
+        <view class="list-box"  wx:if="{{countDownList[index].day != '00' || countDownList[index].hou != '00'|| countDownList[index].min != '00'|| countDownList[index].sec != '00'}}">
+          <navigator hover-class="none" url="index-detail/index-detail?item_id={{item.id}}">
+            <view class="img-box">
+              <image src="{{item.path_thumb}}"></image>
+              <view class="time">
+                <text wx:if="{{countDownList[index].day != '00'}}">还剩{{countDownList[index].day}}天{{countDownList[index].hou}}:{{countDownList[index].min}}:{{countDownList[index].sec}}</text>
+                <text wx:else>还剩{{countDownList[index].hou}}:{{countDownList[index].min}}:{{countDownList[index].sec}}</text>
+              </view>
+            </view>
+          </navigator>  
+          <view class="txt-box">
+            <navigator hover-class="none" url="index-detail/index-detail?item_id={{item.id}}">
+            <view class="txt">
+              <view class="title">
+                <text>{{item.title}}</text>
+              </view>
+              <view class="tab">
+                <text>VAM系列</text>
+              </view>
+              <view class="info">
+                <text>{{item.keyword}}</text>
+              </view>
+              <view class="money">
+                <text class="a">¥{{item.cur_price}}</text>
+                <text class="b">¥{{item.market_price}}</text>
+              </view>
+            </view>
+            </navigator>  
+            <navigator hover-class="none" url="index-detail/index-detail?item_id={{item.id}}">
+              <view class="start">
+                <text class="n">{{item.join_people}}人已参团</text>
+                <text class="s">马上开抢</text>
+              </view>
+            </navigator>  
+          </view>  
+        </view>
+
+        <view class="list-box"  wx:if="{{countDownList[index].day == '00' &&countDownList[index].hou == '00'&&countDownList[index].min == '00'&&countDownList[index].sec == '00'}}">
+          <navigator hover-class="none" url="">
+            <view class="img-box">
+              <image src="{{item.path_thumb}}"></image>
+              <view class="time">
+                <text wx:if="{{countDownList[index].day != '00'}}">还剩{{countDownList[index].day}}天{{countDownList[index].hou}}:{{countDownList[index].min}}:{{countDownList[index].sec}}</text>
+                <text wx:else>还剩{{countDownList[index].hou}}:{{countDownList[index].min}}:{{countDownList[index].sec}}</text>
+              </view>
+            </view>
+          </navigator>  
+          <view class="txt-box">
+            <navigator hover-class="none" url="">
+            <view class="txt">
+              <view class="title">
+                <text>{{item.title}}</text>
+              </view>
+              <view class="tab">
+                <text>VAM系列</text>
+              </view>
+              <view class="info">
+                <text>{{item.keyword}}</text>
+              </view>
+              <view class="money">
+                <text class="a">¥{{item.cur_price}}</text>
+                <text class="b">¥{{item.market_price}}</text>
+              </view>
+            </view>
+            </navigator>  
+            <navigator hover-class="none" url="">
+              <view class="start">
+                <text class="n">{{item.join_people}}人已参团</text>
+                <text class="s">已结束</text>
+              </view>
+            </navigator>  
+          </view>  
+        </view>
+
+      </block>
+      <view class="h5">
+        <text class="i"></text>
+        <text class="txt">优惠 · 大拼团</text>
+      </view>
+      <block wx:for="{{item_list_1}}" wx:key="">
+        <view class="list-box" wx:if="{{countDownList1[index].day != '00' || countDownList1[index].hou != '00'|| countDownList1[index].min != '00'||countDownList1[index].sec != '00'}}">
+          <navigator hover-class="none" url="index-detail/index-detail?item_id={{item.id}}">
+            <view class="img-box">
+              <image src="{{item.path_thumb}}"></image>
+              <view class="time">
+                <text wx:if="{{countDownList1[index].day != '00'}}">还剩{{countDownList1[index].day}}天{{countDownList1[index].hou}}:{{countDownList1[index].min}}:{{countDownList1[index].sec}}</text>
+                <text wx:else>还剩{{countDownList1[index].hou}}:{{countDownList1[index].min}}:{{countDownList1[index].sec}}</text>
+              </view>
+            </view>
+          </navigator>  
+          <view class="txt-box">
+            <view class="txt">
+              <view class="title">
+                <text>{{item.title}}</text>
+              </view>
+              <view class="tab">
+                <text>VAM系列</text>
+              </view>
+              <view class="info">
+                <text>{{item.keyword}}</text>
+              </view>
+              <view class="money">
+                <text class="a">¥{{item.cur_price}}</text>
+                <text class="b">¥{{item.market_price}}</text>
+              </view>
+            </view>
+            <navigator hover-class="none" url="index-detail/index-detail?item_id={{item.id}}">
+              <view class="start">
+                <text class="n">{{item.join_people}}人已参团</text>
+                <text class="s">马上开团</text>
+              </view>
+            </navigator>  
+          </view>  
+        </view>
+
+        <view class="list-box"  wx:if="{{countDownList1[index].day == '00' &&countDownList1[index].hou == '00'&&countDownList1[index].min == '00'&&countDownList1[index].sec == '00'}}">
+          <navigator hover-class="none" url="">
+            <view class="img-box">
+              <image src="{{item.path_thumb}}"></image>
+              <view class="time">
+                <text wx:if="{{countDownList1[index].day != '00'}}">还剩{{countDownList1[index].day}}天{{countDownList1[index].hou}}:{{countDownList[index].min}}:{{countDownList[index].sec}}</text>
+                <text wx:else>还剩{{countDownList1[index].hou}}:{{countDownList1[index].min}}:{{countDownList1[index].sec}}</text>
+              </view>
+            </view>
+          </navigator>  
+          <view class="txt-box">
+            <navigator hover-class="none" url="">
+            <view class="txt">
+              <view class="title">
+                <text>{{item.title}}</text>
+              </view>
+              <view class="tab">
+                <text>VAM系列</text>
+              </view>
+              <view class="info">
+                <text>{{item.keyword}}</text>
+              </view>
+              <view class="money">
+                <text class="a">¥{{item.cur_price}}</text>
+                <text class="b">¥{{item.market_price}}</text>
+              </view>
+            </view>
+            </navigator>  
+            <navigator hover-class="none" url="">
+              <view class="start">
+                <text class="n">{{item.join_people}}人已参团</text>
+                <text class="s">已结束</text>
+              </view>
+            </navigator>  
+          </view>  
+        </view>
+      </block>
+      <view class="h5">
+        <text class="i"></text>
+        <text class="txt">已结束</text>
+      </view>
+      <block wx:for="{{item_list_2}}" wx:key="">
+        <view class="list-box">
+          <view hover-class="none">
+            <view class="img-box">
+              <image src="{{item.path_thumb}}"></image>
+              <view class="time">
+                <text>已结束</text>
+              </view>
+            </view>
+          </view>  
+          <view class="txt-box">
+            <view class="txt">
+              <view class="title">
+                <text>{{item.title}}</text>
+              </view>
+              <view class="tab">
+                <text>VAM系列</text>
+              </view>
+              <view class="info">
+                <text>{{item.keyword}}</text>
+              </view>
+              <view class="money">
+                <text class="a">¥{{item.cur_price}}</text>
+                <text class="b">¥{{item.market_price}}</text>
+              </view>
+            </view>
+            <view hover-class="none">
+              <view class="start">
+                <text class="n"></text>
+                <text class="s">已结束</text>
+              </view>
+            </view>  
+          </view>  
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="right-nav">
+    <view class="but">
+      <view bindtap="callphone">
+        <image class="image" mode='widthFix' src="/image/nav-icon1.png"></image>
+      </view>
+      <view bindtap="callphone">
+        <image class="image" mode='widthFix' src="/image/nav-icon2.png"></image>
+      </view>
+    </view>
+  </view>
+

@@ -1,0 +1,14 @@
+<!--pages/center/about/about.wxml-->
+<view class="main">
+  <image mode='widthFix' src="/image/image-2.png"></image>
+  <view class="txt-box">
+    <text class="h5">青岛海信日立空调系统有限公</text>
+    <text class="span">成立于2003年1月8日，是由海信集团与日立空调共同投资在青岛建立的集商用空调技术开发、产品制造、市场销售和用户为一体的大型合资企业。</text>
+  </view>
+  <image mode='widthFix' src="/image/image-2.png"></image>
+  <view class="txt-box">
+    <text class="h5"></text>
+    <text class="span">是日立空调在日本本土以外的大型变频多联式空调系统生产基地。海信日立公司目前主打产品为变频多联式商用空调系统和变频家用中央空调系统</text>
+    <text class="span">二者均采用日立先进的核心技术，从青岛销往世界各地包括返销日本。</text>
+  </view>
+</view>

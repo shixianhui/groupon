@@ -1,0 +1,48 @@
+<!--pages/center/address/address.wxml-->
+<view class="main">
+  <view wx:if="" class="main-box">
+    <navigator hover-class="none" class="other-button-hover" url="addAddress/addAddress">
+      <image src="/image/address-icon1.png"></image>
+    </navigator>
+    <text class="h5">暂未设置</text>
+    <text class="span">没有收货地址，客服没法给你快递合同和货物哦~</text>
+  </view>
+  <block wx:else="">
+    <view class="ul">
+
+      <view class="li"  wx:for="{{list}}" wx:key="" >
+        <view class="top" data-id="{{item.id}}" bindtap="choose_address" >
+          <view class="name-box">
+            <text class="name">{{item.buyer_name}}</text>
+            <text class="phone">{{item.mobile}}</text>
+          </view>
+          <view class="address">{{item.txt_address}} {{item.address}}</view>
+        </view>
+        <view class="bottom">
+          <radio wx:if="{{item.is_default=='1'}}" bindtap="setDefault" data-flag="{{item.is_default}}" data-info="{{item.id}}" checked="checked" color="#ff4912" >默认地址</radio>
+          <radio wx:if="{{item.is_default=='0'}}" bindtap="setDefault" data-info="{{item.id}}" checked="" color='#ff4912'>默认地址</radio>
+          <text class="buta" bindtap="edit" data-info="{{item}}" data-item_id="{{item.id}}">编辑</text>
+          <text class="butb" bindtap="delete" data-info="{{item.id}}">删除</text>
+        </view>
+      </view>
+
+      <!-- <view class="li">
+        <view class="top">
+          <view class="name-box">
+            <text class="name">谢安琪</text>
+            <text class="phone">18754544010</text>
+          </view>
+          <view class="address">上海市松江区兴联中心村110号</view>
+        </view>
+        <view class="bottom">
+          <text class="buta">编辑</text>
+          <text class="butb">删除</text>
+        </view>
+      </view> -->
+
+    </view>
+    <navigator hover-class="none" url="addAddress/addAddress">
+      <text class="addAddress">新增地址</text>
+    </navigator>
+  </block>
+</view>

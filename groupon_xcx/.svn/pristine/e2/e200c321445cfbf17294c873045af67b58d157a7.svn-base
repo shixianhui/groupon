@@ -1,0 +1,59 @@
+/**index.wxss**/
+.main {background-color: #f9f9f9;}
+.main .main-list1{background-color: #fff;}
+.main .banner-box{height: 560rpx;margin: 30rpx 0rpx 30rpx;}
+.main .banner-box swiper{height: 100%;}
+.main .banner-box .slide-image{width: 94%;height: 100%;margin: 0 auto;border-radius: 10rpx;display: block;}
+.main .banner-box .wx-swiper-dot{margin-bottom: 4rpx; display: inline-flex;margin-left: 2rpx;justify-content:space-between;}
+.main .banner-box .wx-swiper-dot::before{content: '';flex-grow: 1;  background: rgba(255,255,255,0.8);border-radius: 50%}
+.main .banner-box .wx-swiper-dot-active::before{background:#d1ab71;}
+.main .but-list{position: relative;z-index: 1; margin-top: 0rpx; display: flex;justify-content:space-around;padding: 0 40rpx;}
+.main .but-list .li .image{width: 48rpx;margin: 0 auto;display: block;}
+.main .but-list .li .span{font-size: 26rpx;color: #666666;display: block;text-align: center;padding-top: 10rpx;padding-bottom: 30rpx;}
+.main .selected-list{padding: 20rpx 0rpx 30rpx;}
+.main .selected-list .menu {display: flex;padding: 20rpx 140rpx 0;border-bottom: 1px solid #f3f3f3;box-sizing: border-box;background-color: #fff;}
+.main .selected-list .menu .li{font-size: 36rpx;font-weight: 500;color: #999999;flex: 1;text-align: center;}
+.main .selected-list .menu .li .i{width: 50rpx;height: 8rpx;background-color: #fff;display: block;margin: 20rpx auto 0;border-radius: 4rpx;}
+.main .selected-list .menu .active{color: #210e09;}
+.main .selected-list .menu .active .i{background-color: #d1ab71;}
+.main .selected-list .btn-box{display: none;}
+.main .selected-list .btn-box.active{display: block;padding: 0 17rpx;}
+.main .selected-list .h5{text-align: center;margin-top: 17rpx;}
+.main .selected-list .h5 .txt{vertical-align:middle;font-size: 30rpx;color: #666666;font-weight: 400;display: inline-block;line-height: 1;}
+.main .selected-list .h5 .i{vertical-align:middle;width: 5rpx;height: 26rpx;background-color: #666666;display: inline-block;margin-right: 20rpx;}
+.main .selected-list .list-box{background-color: #fff;border-radius: 8rpx;padding: 14rpx;margin-top:17rpx;}
+.main .selected-list .list-box .img-box {margin: 0 auto;position: relative;}
+.main .selected-list .list-box .img-box image{width: 690rpx;height: 340rpx;}
+.main .selected-list .list-box .img-box .time{position: absolute;left: 20rpx;bottom: 32rpx;}
+.main .selected-list .list-box .img-box .time text{font-size: 26rpx;line-height: 40rpx;color: #333;padding:4rpx 20rpx;background: linear-gradient(to top, #c4b5a9, #f2e6cc);border-radius: 5rpx;margin-right: 10rpx;}
+.main .selected-list .list-box .txt-box:after{content: "";display: block;clear: both;}
+.main .selected-list .list-box .txt{float: left;padding: 0 20rpx;}
+.main .selected-list .list-box .txt .title{display: inline;font-size: 26rpx;color: #1c0f0b;font-weight: bold;}
+.main .selected-list .list-box .txt .tab{display: inline;font-size: 18rpx;color: #fff;background: linear-gradient(to right, #d0aa70, #e7ca97);padding: 4rpx 6rpx;margin-left: 40rpx; border-radius: 4rpx;}
+.main .selected-list .list-box .txt .info{font-size: 22rpx;color: #666666;padding-bottom: 10rpx;}
+.main .selected-list .list-box .txt .money .a{font-size: 36rpx;color: #f5222d;font-weight: bold;}
+.main .selected-list .list-box .txt .money .b{font-size: 24rpx;color: #b2b2b2;text-decoration:line-through;margin-left: 30rpx;}
+.main .selected-list .list-box .start{float: right;width: 180rpx;height: 116rpx;margin-top: 16rpx;}
+.main .selected-list .list-box .start .n{display: block;text-align: center;font-size: 22rpx;line-height: 52rpx;color: #666666;padding: 0rpx 0;border: 1px solid #ece0cb;box-sizing: border-box;}
+.main .selected-list .list-box .start .n.end{border: none;}
+.main .selected-list .list-box .start .s{display: block;text-align: center;font-size: 30rpx;color: #404040;background: linear-gradient(to top, #c4b5a9, #f2e6cc);padding: 10rpx 0;border: 1px solid #f2e6cc;box-sizing: border-box;}
+.main .selected-list .list-box .start .s.end{background: #b5b5b5;color: #fff;border:none;border-radius: 30rpx;}
+.top_left{ color:#999999;background:#e8e8e8;padding:15rpx 26px 15rpx 15rpx;font-size:28rpx;z-index:99;display:none;}
+.top_left.active{display:block;}
+.navigator-arrow {
+  padding-right: 26rpx;
+}
+.navigator-arrow:after {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #fff;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  margin-top: -9rpx;
+  right: 24rpx;
+}

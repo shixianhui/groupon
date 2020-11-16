@@ -1,0 +1,47 @@
+body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,input,form,a,p,textarea{
+  margin: 0;
+  padding: 0;
+  font-family: "微软雅黑";
+}
+ol,ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  display: block;
+}
+img{
+  border: none;
+  display: block;
+}
+
+body{background-color: #EEEEEE;}
+
+#nav{width: 100%;}
+#nav .menu-title{width: 100%; height: 36px;background-color:; border-bottom:1px solid #e5e5e5;}
+#nav .menu-title .icon-right{margin:12px 20px 0px 0px;float: right;display: block;width: 13px;height: 13px;background-image: url(../../images/admin/open.png);}
+#nav .menu-title span{float: left;color: #333;font-size: 14px;padding:9px 0 0 16px;}
+#nav .menu-title:hover span{color: #777;}
+#nav .open .sub-menu{display: block;}
+#nav .open .menu-title .icon-right{background-image: url(../../images/admin/closed.png);}
+
+#nav .sub-menu li{height: 40px;width: 100%;border-bottom: 1px solid #e5e5e5;}
+#nav .sub-menu li a{padding-left: 20px;width: 100%;height: 100%; font-size: 14px;color: #333;line-height: 280%;}
+#nav .sub-menu li a:hover{color: #148cf1;}
+#nav .sub-menu li a::before{content: " >  ";padding-left: 10px; padding-right: 10px;}
+
+#nav .menu-title .ico-size{background-size:100% 100%;margin:8px 0px 0px 20px;float: left;display: block;width: 20px;height: 20px;}
+#nav .menu-title .menu{background-image: url(../../images/admin/menu.png);}
+#nav .menu-title .content{background-image: url(../../images/admin/content.png);}
+#nav .menu-title .user{background-image: url(../../images/admin/user.png);}
+#nav .menu-title .product{background-image: url(../../images/admin/product.png);}
+#nav .menu-title .order{background-image: url(../../images/admin/order.png);}
+#nav .menu-title .admin{background-image: url(../../images/admin/admin.png);}
+#nav .menu-title .pattern{background-image: url(../../images/admin/pattern.png);}
+#nav .menu-title .html{background-image: url(../../images/admin/html.png);}
+#nav .menu-title .ad{background-image: url(../../images/admin/ad.png);}
+#nav .menu-title .system_settings{background-image: url(../../images/admin/system_settings.png);}
+#nav .menu-title .system_maintenance{background-image: url(../../images/admin/system_maintenance.png);}
+#nav .menu-title .system_login_log{background-image: url(../../images/admin/system_login_log.png);}
+
+#nav .sub-menu li a.a_cur{color: #FF5722}

@@ -1,0 +1,46 @@
+/* pages/center/address/addAddress/addAddress.wxss */
+.main{width: 100%;background-color: #f2f2f2;}
+.main .title{width: 100%;height: 87rpx;text-align: center;font-size: 28rpx;font-weight: bold;color: #1c0f0b;background-color: #f2f2f2;line-height: 87rpx;}
+.main .saveAddress{margin: 30rpx auto 0; display: block;text-align: center;line-height: 88rpx; width: 680rpx;height: 88rpx;font-size: 32rpx;color: #fff;background-color: #ff4912;border-radius: 10rpx;font-weight: 500;}
+.main .wxAddress{margin: 30rpx auto 0; display: block;text-align: center;line-height: 88rpx; width: 680rpx;height: 88rpx;font-size: 32rpx;color: #fff;background-color: #1c0f0b;border-radius: 10rpx;font-weight: 500;}
+.main form{background-color: #fff;}
+.main form .li{display: flex;align-items:center;padding: 34rpx 42rpx;border-bottom: 1px solid #f2f2f2;background-color: #fff;}
+.main form input{display:block;width:500rpx}
+.main form .txt{display: inline-block;padding-right: 30rpx;font-size: 24rpx;color: #999999;line-height: 25rpx;}
+.main form .fr{text-align:right;width:calc(100% - 250rpx);}
+
+.picker-view {
+  width: 100%;
+  display: flex;
+  z-index:12;
+  background-color: rgba(0,0,0,0.3);
+  flex-direction: column;
+  justify-content: top;
+  align-items:center;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  height: 100vh;
+}
+.picker-view .box{position:absolute;bottom:0;width:100%;background:#fff;}
+.button-view{
+  height:40px;
+  line-height:40px;
+  width:100%;
+  padding:0 10px;
+  margin:10rpx auto 0;
+  border-bottom:1px solid #f5f5f5;
+  box-sizing:border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+picker-view{
+  width: 100%;
+  height: 400rpx;}
+.picker-item {
+  line-height: 70rpx;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+  text-align: center;
+  font-size:30rpx;
+}

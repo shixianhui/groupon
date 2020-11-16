@@ -1,0 +1,11 @@
+/* pages/product/news_detail/news_detail.wxss */
+.container{
+  height: 100%;
+  display: block;
+  align-items: center;
+  justify-content: space-between;
+  padding:30rpx;
+  box-sizing: border-box; 
+  font-size:30rpx;
+  color:#666;
+}

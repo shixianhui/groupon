@@ -1,0 +1,69 @@
+<!--pages/center/center.wxml-->
+<view class="main">
+  <view class="top">
+    <view class='top-op'>
+      <view class="top-bg0"></view>
+      <view class="top-bg1"></view>
+      <view class="top-bg2"></view>
+    </view>
+    <view class="top-box">
+      <view class="user-box">
+        <image class="image" src="{{userInfo.path}}"></image>
+        <view class="user-info">
+          <text class="name">{{userInfo.nickname}}</text>
+          <text class="phone">{{userInfo.mobile}}</text>
+        </view>
+      </view>
+      <view class="collage">
+        <text class="n">{{userInfo.record_count}}</text>
+        <text class="t">拼团数</text>  
+      </view>
+    </view>
+  </view>
+  <view class="order">
+    <view class="order-tab">
+        <view class="ul">
+          <navigator hover-class="none" class="li" url="order/order?type=a">
+              <image class="image" src="/image/icon/order-icon1.png"></image>
+              <text class="span">待付款</text>
+          </navigator>
+          <navigator hover-class="none" class="li" url="order/order?type=b">
+              <image class="image" src="/image/icon/order-icon2.png"></image>
+              <text class="span">拼团中</text>
+          </navigator>
+          <navigator hover-class="none" class="li" url="order/order?type=c">
+              <image class="image" src="/image/icon/order-icon3.png"></image>
+              <text class="span">拼团成功</text>
+          </navigator>
+          <navigator hover-class="none" class="li" url="order/order?type=d">
+              <image class="image" src="/image/icon/order-icon5.png"></image>
+              <text class="span">售后/客服</text>
+          </navigator>
+      </view>  
+    </view> 
+  </view>   
+  <view class="bottom">
+    <navigator hover-class="none" url="address/address">
+      <view class="bottom-box address">
+        <image class="image" src="/image/bottom-icon1.png"></image>
+          <text class="span">我的地址</text>
+        <image class="icon-page" src="/image/bottom-icon4.png"></image>
+      </view>
+    </navigator>  
+    <navigator hover-class="none" url="about/about">
+      <view class="bottom-box address">
+        <image class="image" src="/image/bottom-icon2.png"></image>
+          <text class="span">关于日立</text>
+        <image class="icon-page" src="/image/bottom-icon4.png"></image>
+      </view>
+    </navigator>
+    <!-- <navigator hover-class="none" url="">
+      <view class="bottom-box address">
+        <image class="image" src="/image/bottom-icon3.png"></image>
+          <text class="span">在线客服</text>
+        <image class="icon-page" src="/image/bottom-icon4.png"></image>
+      </view>
+    </navigator> -->
+  </view>
+  <button wx:if="{{userInfo.sid==''}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">登录</button>  
+</view>

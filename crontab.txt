@@ -1,0 +1,6 @@
+08 4 * * * echo 3 > /proc/sys/vm/drop_caches 1>/var/www/clear.txt
+0 */3 * * * /etc/init.d/php-fpm reload 1>/var/www/phpfpm.txt
+*/1 * * * * /usr/local/script/reload_php-fpm_error.sh 1>/var/www/r_php-fpm_error.log
+59 23 * * * curl http://www.goepw.com/task.php echo 1>/var/www/jieshuan.log | mail -s "Settlement OK 23-59" 380995094@qq.com
+30 5 * * *  curl http://www.goepw.com/index.php?app=brand&act=confirm_order echo 1>/var/www/15ordersubmit.log | mail -s "15 Settlement OK 5-30" 380995094@qq.com
+08 6 */3 * * /sbin/shutdown -r now 1>/var/www/shutdown.log

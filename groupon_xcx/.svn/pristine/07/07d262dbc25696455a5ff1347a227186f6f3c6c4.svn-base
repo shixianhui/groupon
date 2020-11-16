@@ -1,0 +1,168 @@
+<!--pages/index/index-detail/index-detail.wxml-->
+<import src="../../../wxParse/wxParse.wxml"/>
+<view class="main">
+  <view class="list1">
+    <!-- <image class="img-banner" mode="widthFix" src="/image/d-banner1.png"></image> -->
+    <view class="banner-box">
+      <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        <block wx:for="{{content.item_info.attachment_list}}" wx:key="">
+          <swiper-item>
+            <image src="{{item.path_thumb}}" class="slide-image"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="top">  
+      <view class="l">
+        <view class="money">
+          <text class="one">¥{{content.item_info.cur_price}}</text>
+          <text class="two">¥{{content.item_info.market_price}}</text>
+        </view>
+        <view class="info">{{content.groupon_info.abstract}}</view>
+      </view>
+      <view class="r">
+        <image class="share" src="/image/d-icon1.png"></image>
+      </view>
+    </view>  
+    <view class="bottom">
+      <text class="title-t">{{content.item_info.title}}</text>
+      <view class="info-box">
+        <text class="info">{{content.item_info.content_short}}</text>
+        <text class="number">已拼{{content.item_info.sales}}件</text> 
+      </view>
+    </view>
+  </view>
+  <view class="list2" wx:if="{{content.groupon_info.type==1}}">
+    <view class="title">
+      <text class="h5">一些伙伴正在发起拼单</text>
+      <!-- <text class="span">查看更多</text> -->
+    </view>  
+    <view>
+
+      <view class="li" wx:for="{{content.groups_list}}" wx:key="">
+        <view class="l"> 
+          <image src="{{item.path_thumb}}"></image>
+          <view class="txt">
+            <text class="name">{{item.nickname}}</text>
+            <text class="info">还差{{item.surplus_people}}人成团</text>
+          </view>
+        </view>
+        <view class="r" bindtap="shopping2" data-is_deposit='1' data-groups_id="{{item.id}}" data-groupon_id="{{item.groupon_id}}">
+          <text>参团</text>
+        </view>
+      </view>
+      
+      <text class="tips">拼单并邀请相应人数参团 人数不足时自动退款</text>
+    </view>
+  </view>
+  <view class="list3">
+    <view class="title">
+      <text class="h5">拼团流程</text>
+      <text class="span">详细说明</text>
+    </view>
+    <view class="ul">
+      <view class="li">
+        <image src="/image/d-icon2-1.png"></image>
+        <text>团长开团</text>
+      </view>
+      <view class="li">
+        <image src="/image/d-icon2-2.png"></image>
+        <text>邀请好友</text>
+      </view>
+      <view class="li">
+        <image src="/image/d-icon2-3.png"></image>
+        <text>拼团成功</text>
+      </view>
+      <view class="li">
+        <image src="/image/d-icon2-4.png"></image>
+        <text>上门安装</text>
+      </view>
+    </view>
+    <text class="tips">支付商品开团，邀请好友参与，成功后送货安装，失败退款\n拼单成功无须全款，预付1000元定金即可，定金可退</text>
+  </view>
+  <view class="list4">
+    <view class="title">
+      <text class="h5">商品详情</text>
+    </view>
+    <view class="table">
+      <view class="tr">
+        <view class="th">名 称：</view>
+        <view class="td">{{content.item_info.name}}</view>
+      </view>
+      <view class="tr">
+        <view class="th">型  号：</view>
+        <view class="td">{{content.item_info.model}}</view>
+      </view>
+      <view class="tr">
+        <view class="th">功 率(kw)：</view>
+        <view class="td">{{content.item_info.power}}</view>
+      </view>
+      <view class="tr">
+        <view class="th">尺寸(长*宽*厚)：</view>
+        <view class="td">{{content.item_info.size}}mm</view>
+      </view>
+      <view class="tr">
+        <view class="th">适用面积：</view>
+        <view class="td">{{content.item_info.suit_area}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="list5">
+    <view class="ul">
+      <view class="li">
+        <image src="/image/d-icon3-1.png"></image>
+        <text class="h5">全进口</text>
+        <text class="span">核心零部件</text>
+      </view>
+      <view class="li">
+        <image src="/image/d-icon3-2.png"></image>
+        <text class="h5">超静音</text>
+        <text class="span">内机仅21db</text>
+      </view>
+      <view class="li">
+        <image src="/image/d-icon3-3.png"></image>
+        <text class="h5">超薄</text>
+        <text class="span">内机仅厚192mm</text>
+      </view>
+      <view class="li">
+        <image src="/image/d-icon3-4.png"></image>
+        <text class="h5">LPV7.5</text>
+        <text class="span">高效节能</text>
+      </view>
+    </view>  
+  </view> -->
+  <view class="list6">
+    <!-- <image wx:for="{{3}}" wx:key="" mode='widthFix' src="/image/d-list2.png"></image> -->
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+</view>
+<view class="nav-height"></view>
+<view class="nav">
+  <navigator hover-class="none" class="nav-list" open-type="switchTab" url="../../index/index" style="width:40%">
+    <image src='/image/d-icon4.png'></image>
+    <text>首页</text>
+  </navigator>
+  <view hover-class="none" class="nav-list" url="settlement/settlement">
+    <text>¥{{content.item_info.sell_price}}</text>
+    <text>单独购买</text>
+  </view>
+  <view bindtap="shopping" hover-class="none" data-is_deposit='0' data-groupon_id="{{content.groupon_info.id}}" class="nav-list" style="display:none">
+    <text>¥{{content.item_info.cur_price}}</text>
+    <text>全款拼团</text>
+  </view>
+  <view bindtap="shopping" data-is_deposit='1' data-groupon_id="{{content.groupon_info.id}}" hover-class="none" class="nav-list">
+    <text>¥{{content.groupon_info.deposit}}</text>
+    <text>订金拼团</text>
+  </view>
+</view>
+<view class="right-nav">
+    <view class="but">
+      <view bindtap="callphone">
+        <image class="image" mode='widthFix' src="/image/nav-icon1.png"></image>
+      </view>
+      <view bindtap="callphone">
+        <image class="image" mode='widthFix' src="/image/nav-icon2.png"></image>
+      </view>
+    </view>
+  </view>

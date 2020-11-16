@@ -1,0 +1,45 @@
+/* pages/index/index-detail/settlement/settlement.wxss */
+.top{padding: 30rpx;margin-bottom: 12rpx;background-color: #fff;border-top: 1px solid #f2f2f2;display: flex;justify-content: space-between;align-items: center;}
+.top .title{display: flex;align-items: center;}
+.top .title .txt-box{display: inline-block;}
+.top .title .image{width: 26rpx;height: 32rpx;margin-right: 30rpx;}
+.top .title .name{font-size: 28rpx;color: #1c0f0b;display: block;font-weight: bold;display: flex;justify-content: space-between;width: 494rpx;}
+.top .title .span{font-size: 26rpx;color: #1c0f0b;display: block;}
+.top .title .add{font-size: 24rpx;color: #999999;display: block;padding-top: 18rpx;width: 494rpx;}
+.top .add-list{display: inline-block;}
+.top .add-list .image{width: 13rpx;height: 21rpx;}
+
+.order-info{background-color: #fff;margin-bottom: 12rpx;}
+.order-info .title{padding: 30rpx 36rpx;border-bottom: 1px solid #f2f2f2;}
+.order-info .title .h5{font-size: 28rpx;color: #1c0f0b;font-weight: 600;}
+.order-info .info{padding: 30rpx 30rpx;display: flex;justify-content: space-between;}
+.order-info .info .image{width: 320rpx;height: 180rpx;}
+.order-info .info .txt-box{width: 340rpx;}
+.order-info .info .txt-box .h5{font-size: 24rpx;color: #231611;display: block;line-height: 1.4;font-weight: bottom;padding-top: 10rpx;}
+.order-info .info .txt-box .span{font-size: 22rpx;color: #999999;}
+.order-info .info .txt-box .money{font-size: 28rpx;color: #ff4912;display: block;padding-top: 10rpx;}
+
+.payment {background-color: #fff;margin-bottom: 12rpx;}
+.payment .title{padding: 30rpx 36rpx;border-bottom: 1px solid #f2f2f2;font-size: 28rpx;color: #1c0f0b;font-weight: 600;}
+.payment .wxpay{padding: 34rpx 33rpx;display: flex;justify-content: space-between;align-items: center;}
+.payment .wxpay .img-box{display: flex;align-items: center;}
+.payment .wxpay .img-box .txt-box{display: inline-block;padding-left: 20rpx;}
+.payment .wxpay .img-box .image{width: 88rpx;height: 88rpx;}
+.payment .wxpay .img-box .h5{display: block;font-size: 26rpx;color: #1c0f0b;font-weight: 600;}
+.payment .wxpay .img-box .span{display: block;font-size: 24rpx;color: #999999;padding-top: 10rpx;}
+
+.remarks{background-color: #fff;display: flex;align-items: center;padding: 30rpx;}
+.remarks .h5{font-size: 28rpx;color: #1c0f0b;font-weight: 600;margin-right: 30rpx;}
+.remarks .text{}
+
+.place-order{position: fixed;left: 0;right: 0;bottom: 0;background-color: #fff;height: 98rpx;display: flex;justify-content: space-between;align-items: center;padding-left: 30rpx;}
+.place-order .h6{font-size: 24rpx;color: #1c0f0b;width: 200rpx;}
+.place-order .total{font-size: 24rpx;color: #999999;}
+.place-order .total .money{font-size: 30rpx;color: #ff4912;padding-left: 20rpx;}
+.place-order .but{font-size: 32rpx;color: #fefefe;font-weight: bold;background-color: #ff4912;text-align: center;width: 240rpx;height: 98rpx;line-height: 98rpx;}
+
+.m{position: fixed;top: 0;left: 0;right: 0;bottom: 0;background-color: rgba(0,0,0,0.6);display: flex;}
+.m .txt-box{margin: auto;width: 440rpx;border-radius: 10rpx;background-color: #fff;}
+.m .txt-box .txt{padding: 40rpx 0;border-bottom: 1px solid #f2f2f2;}
+.m .txt-box .txt .h5{font-size: 26rpx;color: #1c0f0b;width: 290rpx;display: block;margin: 0 auto;}
+.m .txt-box .but{font-size: 28rpx;color: #1c0f0b;text-align: center;padding: 26rpx 0;}

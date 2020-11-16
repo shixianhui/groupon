@@ -1,0 +1,55 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/index/index-detail/index-detail",
+    "pages/index/index-detail/settlement/settlement",
+    "pages/index/index-open-group/index-open-group",
+    "pages/index/index-join-group/index-join-group",
+    "pages/product/product",
+    "pages/center/center",
+    "pages/center/order/order",
+    "pages/center/address/address",
+    "pages/center/address/addAddress/addAddress",
+    "pages/center/about/about",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "日立团购小程序",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#ff4610",
+    "borderStyle": "white",
+    "backgroundColor": "#f9f9f9",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/image/icon-home1.png",
+        "selectedIconPath": "/image/icon-home2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/product/product",
+        "iconPath": "/image/icon-pd1.png",
+        "selectedIconPath": "/image/icon-pd2.png",
+        "text": "识物"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "iconPath": "/image/icon-c1.png",
+        "selectedIconPath": "/image/icon-c2.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

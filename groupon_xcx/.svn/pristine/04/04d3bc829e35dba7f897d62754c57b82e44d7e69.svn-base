@@ -1,0 +1,71 @@
+/* pages/index/index-detail/index-detail.wxss */
+.banner-box{height: 600rpx;}
+.banner-box swiper{height: 100%;}
+.banner-box .slide-image{width: 100%;height: 100%;}
+.banner-box .wx-swiper-dot{margin-bottom: 15rpx; display: inline-flex;margin-left: 2rpx;justify-content:space-between;}
+.banner-box .wx-swiper-dot::before{content: '';flex-grow: 1;  background: rgba(255,255,255,0.8);border-radius: 50%}
+.banner-box .wx-swiper-dot-active::before{background:rgba(244,0,0,0.8);}
+
+.list1{width: 100%;background-color: #fff;}
+.list1 .img-banner{width: 100%;}
+.list1 .top {border-bottom: 1px solid #e6e6e6;padding: 30rpx;display: flex;justify-content:space-between;align-items:center;}
+.list1 .top .money .one{font-size: 36rpx;color: #ff4912;font-weight: bold;}
+.list1 .top .money .two{padding-left: 20rpx; font-size: 24rpx;color: #b2b2b2;text-decoration:line-through;}
+.list1 .top .info{font-size: 24rpx;color: #999999;padding-top: 10rpx;}
+.list1 .top .r{margin-right: 10rpx;}
+.list1 .top .share{width: 48rpx;height: 48rpx;padding:0;border-radius:50%;line-height:1em;}
+.list1 .bottom{padding: 30rpx;}
+.list1 .bottom .title-t{font-size: 28rpx;color: #231611;font-weight: 600;line-height: 1.2;display: block;width: 550rpx;}
+.list1 .bottom .info-box{display: flex;justify-content:space-between;padding-top: 20rpx;}
+.list1 .bottom .info{font-size: 24rpx;color: #999999;}
+.list1 .bottom .number{font-size: 22rpx;color: #ff4912;}
+
+.title{display: flex;justify-content:space-between;align-items:center;padding: 30rpx;border-bottom: 1px solid #e6e6e6;}
+.title .h5{font-size: 26rpx;color: #231611;font-weight: bold;}
+.title .span{font-size: 24rpx;color: #b2b2b2;}
+.tips{font-size: 22rpx;color: #999999;text-align: center;line-height: 1.8;display: block;padding: 36rpx 0;}
+
+.list2{margin-top: 12rpx;width: 100%;background-color: #fff;}
+.list2 .li{display: flex;justify-content:space-between;align-items:center;padding: 20rpx 30rpx 20rpx 60rpx;}
+.list2 .li .l image{display: block;float: left;width: 100rpx;height: 100rpx;border-radius: 50%;}
+.list2 .li .l .txt{display: block;float: left;margin: 10rpx 14rpx;}
+.list2 .li .l .txt .name{font-size: 26rpx;color: #000000;display: block;}
+.list2 .li .l .txt .info{font-size: 24rpx;color: #999999;display: block;padding-top: 10rpx;}
+.list2 .li .r{width: 140rpx;height: 56rpx;background-color: #ff4912;text-align: center;border-radius: 10rpx;}
+.list2 .li .r text{color: #fff; font-size: 26rpx;font-weight: 600;display: block;line-height: 56rpx;}
+
+.list3{margin-top: 12rpx;width: 100%;background-color: #fff;}
+.list3 .ul{display: flex;justify-content:space-between;padding:80rpx 66rpx 60rpx;}
+.list3 .li{text-align: center;}
+.list3 .li image{width: 70rpx;height: 63rpx;}
+.list3 .li text{display: block;font-size: 26rpx;color: #231611;padding-top: 20rpx;}
+
+.list4{margin-top: 12rpx;width: 100%;background-color: #fff;}
+.list4 .table{padding: 43rpx 70rpx;}
+.list4 .tr{width:100%;display:flex;justify-content:space-between}
+.list4 .th{width:40%;padding:10px 0;text-align:left;font-size: 26rpx;font-weight:500;color:#333333;}
+.list4 .td{width:60%;padding:10px 0;text-align:left;font-size: 26rpx;color:#999999;}
+
+.list5{margin-top: 12rpx;width: 100%;background-color: #fff;}
+.list5 .ul{display: flex;justify-content:space-between;padding: 70rpx 50rpx;}
+.list5 .li{text-align: center;}
+.list5 .li image{width: 79rpx;height: 81rpx;}
+.list5 .li .h5{display: block;font-size: 26rpx;color: #231611;font-weight: 600;padding-top: 24rpx;}
+.list5 .li .span{font-size: 24rpx;color: #999999;}
+
+.list6{margin-top: 12rpx;padding-bottom: 12rpx;width: 100%;background-color: #fff;}
+.list6 image{width: 100%;display: block;margin-bottom: 12rpx;}
+.nav-height{height: 104rpx;}
+.nav {position: fixed;bottom: 0;left: 0;right: 0;z-index: 9;display:flex;overflow: hidden;}
+.nav .nav-list{text-align: center;color: #fff;font-size: 26rpx;}
+.nav .nav-list:first-child{background-color: #fff;color: #333333;width: 120rpx;}
+.nav .nav-list:nth-child(2){background-color: #ffbba6;width: 166rpx;}
+.nav .nav-list:nth-child(3){background-color: #ff9373;width: 166rpx;}
+.nav .nav-list:last-child{background-color: #ff4912;width: 300rpx;}
+.nav .nav-list.grey{background-color: #999999;width:60%;}
+.nav .nav-list.grey text{line-height:102rpx;margin:0;}
+
+.nav image{width: 37rpx;height: 38rpx;display: block;margin: 10rpx auto;}
+.nav text{line-height: 1;display: block;margin: 14rpx 0;}
+
+.right-nav{bottom: 180rpx;}

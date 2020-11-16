@@ -1,0 +1,21 @@
+/* pages/center/address/address.wxss */
+.main {display:flex;flex-direction:column;}
+.main .main-box{text-align: center;padding-top: 340rpx;}
+.main .main-box image{width: 128rpx;height: 128rpx;display: inline-block;}
+.main .main-box .h5{font-size: 30rpx;color: #333333;display: block;text-align: center;padding: 20rpx 0;}
+.main .main-box .span{font-size: 26rpx;color: #999999;display: block;text-align: center;}
+
+.main .ul .li{background-color: #fff;margin-bottom: 12rpx;}
+.main .ul .li .top{border-top: 1px solid #f2f2f2;border-bottom: 1px solid #f2f2f2;padding:40rpx 34rpx 30rpx;}
+.main .top .name-box{display: flex;justify-content:space-between;}
+.main .top .name{font-size: 30rpx;color: #1c0f0b;font-weight: bold;}
+.main .top .phone{font-size: 30rpx;color: #1c0f0b;font-weight: bold;}
+.main .top .address{font-size: 26rpx;color: #999999;display: block;padding-top: 26rpx;}
+
+.main .bottom{text-align: right;padding: 10rpx;}
+.main .bottom text{display: inline-block;font-size: 26rpx;margin-right:20rpx;padding: 6rpx 30rpx;border: 1px solid #ff4912;border-radius: 10rpx;}
+.main .bottom .buta{background-color: #ff4912;color: #fff;}
+.main .bottom .butb{background-color: #fff;color: #1c0f0b;}
+.main .bottom radio{float:left;font-size: 26rpx;margin-left:12rpx;}
+
+.main .addAddress{margin: 30rpx auto 0; display: block;text-align: center;line-height: 88rpx; width: 680rpx;height: 88rpx;font-size: 32rpx;color: #fff;background-color: #ff4912;border-radius: 10rpx;font-weight: bold;}

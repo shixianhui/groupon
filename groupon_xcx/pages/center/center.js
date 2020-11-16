@@ -1,0 +1,354 @@
+// pages/center/center.js
+
+const app = getApp()
+var base_url = app.d.base_url;
+var warnImg = '/image/tishi.png';
+var parent_id=0
+
+// // 登陆
+// var Login = function (that) {
+//   wx.request({
+//     url: base_url + 'napi/login',
+//     method: 'POST',
+//     data: {
+//       username: '15158156032',
+//       password: '123456'
+//     },
+//     header: {
+//       'content-type': 'application/x-www-form-urlencoded'
+//     },
+//     success: function (res) {
+//       console.log(res)
+
+//       if (res.data.success) {
+//         var data = res.data.data;
+//         app.d.sid = data.session_id;
+//         app.d.userInfo['sid'] = data.session_id;
+//         app.d.userInfo['id'] = res.data.data.id;
+//         app.d.userInfo['nickname'] = res.data.data.nickname;
+//         app.d.userInfo['path'] = res.data.data.path;
+//         app.d.userInfo['total'] = res.data.data.total;
+//         app.d.userInfo['sex'] = res.data.data.sex;
+//         app.d.userInfo['score'] = res.data.data.score;
+//         app.d.userInfo['mobile'] = res.data.data.mobile;
+//         app.d.userInfo['username'] = res.data.data.username;
+//         app.d.userInfo['store_id'] = res.data.data.store_id;
+//         app.d.userInfo['store_display'] = res.data.data.store_display;
+//         wx.showToast({
+//           title: '登陆成功',
+//           duration: 1000
+//         });
+
+//         that.userInfo = app.d.userInfo
+//         that.setData({
+//           userInfo:app.d.userInfo
+//         });
+//         // console.log(that.userInfo)
+//         // wx.navigateBack();
+//       } else {
+//         wx.showToast({
+//           title: res.data.message,
+//           image: '/image/tishi.png',
+//           duration: 1000
+//         });
+//       }
+//     },
+//     fail: function (e) {
+//       wx.showToast({
+//         title: '网络异常！',
+//         image: '/image/tishi.png',
+//         duration: 1000
+//       });
+//     }
+//   });
+// }
+
+// 登录授权
+var get_user_info= function (that) {
+  wx.request({
+    url: base_url + 'napi/get_user_info',
+    method: 'POST',
+    data: {},
+    header: {
+      'content-type': 'application/x-www-form-urlencoded',
+      'Cookie': 'ci_session=' + app.d.sid 
+    },
+    success: function (res) {
+      console.log(res)
+      if (res.data.success) {
+        var data = res.data.data;
+        app.d.user_id = data.id;
+        app.d.userInfo['id'] = res.data.data.id;
+        app.d.userInfo['nickname'] = res.data.data.nickname;
+        app.d.userInfo['path'] = res.data.data.path;
+        app.d.userInfo['total'] = res.data.data.total;
+        app.d.userInfo['sex'] = res.data.data.sex;
+        app.d.userInfo['score'] = res.data.data.score;
+        app.d.userInfo['mobile'] = res.data.data.mobile;
+        app.d.userInfo['username'] = res.data.data.username;
+        app.d.userInfo['record_count'] = res.data.data.record_count;
+        // app.d.userInfo['is_default'] = '';
+        // app.d.userInfo['address_id'] ='0';
+        that.data.userInfo = app.d.userInfo
+        that.setData({
+          userInfo: app.d.userInfo
+        });
+      } else {
+        wx.showToast({
+          title: res.data.message,
+          image: '/image/tishi.png',
+          duration: 1000
+        });
+        if (res.data.field=='login'){
+          app.d.userInfo['id'] = '';
+          app.d.userInfo['nickname'] = '';
+          app.d.userInfo['path'] ='';
+          app.d.userInfo['total'] = '';
+          app.d.userInfo['sex'] = '';
+          app.d.userInfo['score'] = '';
+          app.d.userInfo['mobile'] = '';
+          app.d.userInfo['username'] = '';
+          app.d.userInfo['record_count'] = '';
+          app.d.sid = '';
+          app.d.user_id = '';
+          app.d.userInfo['sid'] = '';
+          that.setData({
+            userInfo: app.d.userInfo
+          });
+        }
+      }
+    },
+    fail: function (e) {
+      wx.showToast({
+        title: '网络异常！',
+        image: '/image/tishi.png',
+        duration: 1000
+      });
+    }
+  });
+}
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    userInfo:[]
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    that.userInfo= app.d.userInfo
+    that.setData({
+      userInfo:app.d.userInfo
+    });
+    // Login(that);
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    get_user_info(this);
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    var that = this;
+    that.userInfo = app.d.userInfo
+    that.setData({
+      userInfo: app.d.userInfo
+    });
+    wx.stopPullDownRefresh()
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  // onShareAppMessage: function () {
+  
+  // },
+
+// 获取用户信息
+  getUserInfo: function (cb) {
+    console.log(cb)
+    var that = this;
+    
+      //调用登录接口
+      wx.login({
+        success: function (res) {
+          var code = res.code;
+          // wx.getUserInfo({
+          //   success: function (res) {
+          app.globalData.userInfo = cb.detail.userInfo
+          app.d.userInfo = cb.detail.userInfo
+          typeof cb == "function" && cb(app.globalData.userInfo);
+          var encryptedData = cb.detail.encryptedData;
+          var iv = cb.detail.iv;
+          that.logins(code, iv, encryptedData);
+            // },
+            // fail: function (res) {
+            //   that.checkSettingStatu();
+            // }
+          // });
+        },fail: function (res) {
+          // that.checkSettingStatu();
+        }
+      });
+  },
+
+  // isEmptyObject: function (e) {
+  //   //对象是否为空；判断是否是第一次授权，非第一次授权且授权失败则进行提醒
+  //   var t;
+  //   for (t in e)
+  //     return !1;
+  //   return !0
+  // },
+
+  // // 判断是否授权
+  // checkSettingStatu: function (cb) {
+  //   //授权处理
+  //   var that = this;
+  //   // 判断是否是第一次授权，非第一次授权且授权失败则进行提醒
+  //   wx.getSetting({
+  //     success: function success(res) {
+  //       var authSetting = res.authSetting;
+  //       if (that.isEmptyObject(authSetting)) {
+  //         console.log('首次授权');
+  //       } else {
+  //         console.log('不是第一次授权', authSetting);
+  //         // 没有授权的提醒
+  //         if (authSetting['scope.userInfo'] === false) {
+  //           wx.showModal({
+  //             title: '打开设置页面进行授权',
+  //             content: '需要获取您的公开信息(昵称、头像等)，请到小程序的设置中打开用户信息授权',
+  //             showCancel: true,
+  //             cancelText: '取消',
+  //             confirmText: '去设置',
+  //             success: function (res) {
+  //               // 此处为了用于 Android 系统区分点击蒙层关闭还是点击取消按钮关闭省去了res.confirm，res.cancel判断
+  //               // 点击蒙层同样触发开启设置
+  //               if (res.confirm) {
+  //                 wx.openSetting({
+  //                   success: function success(res) {
+  //                     if (res.authSetting['scope.userInfo'] === false) {
+
+  //                     } else {
+  //                       that.getUserInfo();
+  //                     }
+  //                   }
+  //                 });
+  //               }
+  //             }
+  //           })
+  //         }
+  //       }
+  //     }
+  //   });
+  // },
+
+  // 登录授权
+  logins: function (code, iv, encryptedData) {
+    var that = this;
+    wx.request({
+      url: base_url+'napi/wx_login',
+      method: 'POST',
+      data: {
+        code: code,
+        iv: iv,
+        encryptedData: encryptedData,
+        parent_id: parent_id
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.data.success) {
+          var data = res.data.data;
+          app.d.sid = data.session_id;
+          app.d.user_id = data.id;
+          app.d.userInfo['sid'] = data.session_id;
+          app.d.userInfo['id'] = res.data.data.id;
+          app.d.userInfo['nickname'] = res.data.data.nickname;
+          app.d.userInfo['path'] = res.data.data.path;
+          app.d.userInfo['total'] = res.data.data.total;
+          app.d.userInfo['sex'] = res.data.data.sex;
+          app.d.userInfo['score'] = res.data.data.score;
+          app.d.userInfo['mobile'] = res.data.data.mobile;
+          app.d.userInfo['username'] = res.data.data.username;
+          app.d.userInfo['record_count'] = res.data.data.record_count;
+          // app.d.userInfo['is_default'] = '';
+          // app.d.userInfo['address_id'] ='0';
+          that.userInfo = app.d.userInfo
+          that.setData({
+            userInfo: app.d.userInfo
+          });
+          console.log(app.d.parent)
+          console.log(wx.getStorageSync('join_group_id'))
+          console.log(wx.getStorageSync('open_group_id'))
+          if (app.d.parent == 'join_group') {
+            app.d.parent =''
+            wx.navigateTo({
+              url: '/pages/index/index-join-group/index-join-group?item_id=' + wx.getStorageSync('join_group_id') + '&&parent_id=0',
+            })
+          } else if (app.d.parent == 'open_group') {
+            app.d.parent = ''
+            wx.navigateTo({
+              url: '/pages/index/index-open-group/index-open-group?item_id=' + wx.getStorageSync('open_group_id') + '&&parent_id=0',
+            })
+          }else{
+
+          }
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            image: '/image/tishi.png',
+            duration: 1000
+          });
+        }
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          image: '/image/tishi.png',
+          duration: 1000
+        });
+      }
+    });
+  },
+
+})

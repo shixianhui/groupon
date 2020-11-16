@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {},
+  "navigationBarTitleText": "我的订单",
+  "BackgroundColor": "#000000"
+  
+}

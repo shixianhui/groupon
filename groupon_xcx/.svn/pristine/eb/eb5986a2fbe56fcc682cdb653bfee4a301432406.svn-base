@@ -1,0 +1,62 @@
+<!--pages/center/address/addAddress/addAddress.wxml-->
+<view class="main">
+  <view class="title">地址信息</view>
+  <form>
+    <view class="li">
+      <text class="txt">收货人姓名</text>
+      <input name="usename" bindinput="input_buyer_name" value="{{content.buyer_name}}" type="text"></input>
+    </view>
+    <view class="li">
+       <text class="txt">手机号码</text>
+      <input name="mobile" bindinput="input_mobile" value="{{content.mobile}}" type="number"></input>
+    </view>
+    <view bindtap="selectDistrict" class="li">
+       <text class="txt">省市地区</text>
+      <input name="usename" type="text" value="{{areaInfo}}"></input>
+    </view>
+    <view class="li">
+       <text class="txt">详细地址</text>
+      <input name="address" bindinput="input_address" value="{{content.address}}" type="text"></input>
+    </view>
+    <view class="li">
+      <view class="txt">是否设置为默认地址</view>
+      <view class="fr">
+        <view wx:if="{{content.is_default=='1'}}">
+          <switch bindchange="switchChange" checked />
+        </view>
+        <view wx:else>
+          <switch bindchange="switchChange" />
+        </view>
+      </view>
+    </view>
+  </form>
+  <button class="saveAddress" bindtap="saveAddress">
+    <text>保存</text>
+  </button>
+  <button class="wxAddress" bindtap="wxAddress">
+    <text>一键获取微信地址</text>
+  </button>
+</view>
+
+<view class="picker-view" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}">
+  <view class="box" animation="{{animationAddressMenu}}">
+    <view class="button-view">
+      <text catchtap="cityCancel">取消</text>
+      <text style="float: right;color:#ff4949;" catchtap="citySure">确定</text>
+    </view>
+    <picker-view bindchange="cityChange" value="{{value}}" wx:key="">
+      <picker-view-column>
+        <view wx:for="{{provinces}}" wx:key="" class="picker-item">
+          {{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{citys}}" wx:key="" class="picker-item">
+          {{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{areas}}" wx:key="" class="picker-item">
+          {{item.name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

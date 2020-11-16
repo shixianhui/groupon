@@ -1,0 +1,33 @@
+/* pages/center/center.wxss */
+.main{width: 100%;height: 100vh;background-color: #f9f9f9;}
+.top{position: relative;width: 100%;height: 300rpx;overflow: hidden;}
+.top-op{opacity: 0.8;}
+.top-bg0{position: absolute;left:0rpx;top: 0rpx;right: 0;bottom: 0; z-index: 1;background-color: #c8c8c8;}
+.top-bg1{position: absolute;left:-110rpx;top: -100rpx;z-index: 2;width: 600rpx;height: 600rpx; border-radius: 50%;background-color:#e2e0e0;box-shadow:10rpx 20rpx 200rpx 2rpx #c8c8c8;}
+.top-bg2{position: absolute;left:-90rpx;top: -66rpx;z-index: 3;width: 400rpx;height: 400rpx; border-radius: 50%;background:linear-gradient(to right, #c9c9c9, #ecebeb);box-shadow:10rpx 20rpx 200rpx 2rpx #c8c8c8;}
+.top-box{position: absolute;left:0rpx;top: 0rpx;right: 0;bottom: 0; z-index: 4;border-radius: 50%;}
+.top::after{content: "";display: block;clear: both;}
+.user-box{padding: 55rpx 24rpx 70rpx;float: left;}
+.user-box .image{display: inline-block;vertical-align:middle;width: 140rpx;height: 140rpx;border-radius: 50%;}
+.user-info{display: inline-block;vertical-align:middle;margin-left: 20rpx;}
+.user-info .name{display: block;font-size: 44rpx;color: #fff;font-weight: 500;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;max-width:450rpx;}
+.user-info .phone{display: block;font-size: 26rpx;color: #fff;padding-top: 10rpx;}
+
+.collage{float: right;padding: 70rpx 140rpx 70rpx 0rpx;}
+.collage .n{font-size: 40rpx;color: #fff;font-weight: 400;display: block;text-align:center}
+.collage .t{font-size: 30rpx;color: #fff;display: block;}
+
+.order{position: relative;margin:0;width: 100%;height: 160rpx; background-color: #fff;}
+.order-tab{position: absolute;top: -40rpx;left: 0;right: 0;z-index: 11;}
+.order-tab .ul{display: flex;padding: 48rpx 20rpx;width: 88%;height: 100rpx;margin: 0 auto;border-radius: 10rpx; box-shadow:0rpx 6rpx 16rpx 2rpx #dedede;background-color: #fff;}
+.order-tab .ul .li{flex: 1;text-align: center;}
+.order-tab .ul .li .image{width: 60rpx;height: 50rpx;}
+.order-tab .ul .li .span{display: block;color: #666666;font-size: 28rpx;padding-top: 20rpx;}
+
+.bottom{background-color: #fff;padding: 0rpx;}
+.bottom navigator{padding: 0rpx}
+.bottom .image{vertical-align:middle;width: 28rpx;height: 30rpx;}
+.bottom .span{vertical-align:middle;font-size: 28rpx;color: #666666;font-weight: 400;padding-left: 28rpx;}
+.bottom .icon-page{vertical-align:middle;width: 12rpx;height: 21rpx;margin-left: 510rpx;}
+.bottom navigator .bottom-box{padding: 30rpx 20rpx;border-bottom: 1px solid #dddddd;box-sizing: border-box;}
+.bottom navigator:last-child .bottom-box{border-bottom: none;}

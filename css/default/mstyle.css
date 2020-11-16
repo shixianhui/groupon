@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 全局公共样式的设定 */
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd{margin:0;padding:0;border:0;}
+body{background:url(../../images/default/box_bg.jpg) no-repeat center top;color:#444;font:12px Arial,'宋体';}
+li{list-style-type:none;}
+h1,h2,h3,h4,h5,h6 {font-size:12px; font-weight:normal;}
+input,button,textarea,select{font:100% Arial,'宋体';}
+/* 默认全局样式超链接样式 */
+a:link {color: #000; text-decoration:none;}/* 链接基本样式 */
+a:hover {color: #009689; text-decoration:underline;}/* 链接移上时的样式 */
+clear{clear:both;}
+
+/* 其它常用样式的定义 */
+.left{ float: left;}
+.right{ float: right;}
+.clear{ clear: both;}
+.noBorder{border:none;	}
+
+img,li{ vertical-align:top;}/* 解决图片和LI的高度空隙问题 */
+
+.cc_gs{ width:980px; margin:0 auto; margin-top:15px;}
+.banner{ height:340px; float:left; width:980px;}
+.nn_lr{ margin-top:15px; float:left}
+.l_nn{ width:236px; height:316px; float:left;}
+.r_nn{ width:729px; float:left; margin-left:15px;}
+.mm_h{ height:60px;}
+.nav_cd{ width:205px; height:240px; border:1px solid #d6d6d6; padding:14px 15px 0px 14px;}
+.nav_cd ul li{ height:26px; margin-bottom:14px; background:url(../../images/default/ssj.gif) no-repeat 0 9px; padding-left:9px;}
+.nav_cd ul li a{ color:#555; font-size:14px; background:#f3f3f3; height:26px; line-height:26px; width:191px; display:block; padding-left:5px;}
+.nav_cd ul li a:hover{ color:#2fa6a0; font-weight:bold; text-decoration:none;background:#ececec; cursor:pointer;}
+
+
+.wz_bt{ height:33px; background:url(../../images/default/r_bg.gif) repeat-x; border:1px solid #d9d9d9; padding-left:10px; color:#555; line-height:33px;}
+.js_nnz{ width:679px; background:#f9f9f9; overflow:hidden; padding:25px;}
+.js_nnz span{ color:#444; line-height:24px;}

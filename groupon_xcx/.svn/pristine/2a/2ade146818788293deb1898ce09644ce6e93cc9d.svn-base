@@ -1,0 +1,28 @@
+/* pages/center/center.wxss */
+.top{background: linear-gradient(to right, #fc4612 , #f13909);}
+.top::after{content: "";display: block;clear: both;}
+.user-box{padding: 55rpx 24rpx 70rpx;float: left;}
+.user-box .image{display: inline-block;vertical-align:middle;width: 120rpx;height: 120rpx;border-radius: 50%;}
+.user-info{display: inline-block;vertical-align:middle;margin-left: 20rpx;}
+.user-info .name{display: block;font-size: 32rpx;color: #fff;font-weight: 400;}
+.user-info .phone{display: block;font-size: 26rpx;color: #fff;padding-top: 10rpx;}
+
+.collage{float: right;padding: 70rpx 140rpx 70rpx 0rpx;}
+.collage .n{font-size: 40rpx;color: #fff;font-weight: 400;display: block;text-align:center}
+.collage .t{font-size: 22rpx;color: #fff;display: block;}
+
+.order{margin:16rpx 0;background-color: #fff;}
+.order-title{border-bottom:1px solid #cccccc;box-sizing: border-box;padding: 17rpx 33rpx;}
+.order-title .image{vertical-align:middle;width: 24rpx;height: 29rpx;}
+.order-title .h5{vertical-align:middle;padding-left: 26rpx;font-size: 28rpx;color: #1c0f0b;font-weight: bold;}
+.order-tab .ul{display: flex;padding: 48rpx 20rpx;}
+.order-tab .ul .li{flex: 1;text-align: center;}
+.order-tab .ul .li .image{width: 49rpx;height: 46rpx;}
+.order-tab .ul .li .span{display: block;color: #666666;font-size: 26rpx;padding-top: 20rpx;}
+
+.bottom{background-color: #fff;padding: 0 30rpx;}
+.bottom .image{vertical-align:middle;width: 28rpx;height: 30rpx;}
+.bottom .span{vertical-align:middle;font-size: 28rpx;color: #1c0f0b;font-weight: 400;padding-left: 28rpx;}
+.bottom .icon-page{vertical-align:middle;width: 12rpx;height: 21rpx;margin-left: 490rpx;}
+.bottom navigator .bottom-box{padding: 30rpx 0;border-bottom: 1px solid #cccccc;box-sizing: border-box;}
+.bottom navigator:last-child .bottom-box{border-bottom: none;}

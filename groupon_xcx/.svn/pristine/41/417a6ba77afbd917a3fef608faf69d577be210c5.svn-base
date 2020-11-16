@@ -1,0 +1,173 @@
+<!--pages/product/product.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="main">
+  <view class="top">
+    <view class="banner">
+      <image src='{{product.bannerImage}}'></image>
+    </view>
+    <view class="ul-icon">
+      <block wx:for="{{product.bannerAdTxt}}" wx:key="">
+        <view class="li">
+          <image class="i" src="/image/list2-icon.png"></image>
+        <text class="span">{{item}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="main-txt">
+    <view class="menu">
+       <view class="tab-menu" > 
+        <view class="but {{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">且说日立<text class="i"></text></view> 
+        <view class="but {{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">日立产品<text class="i"></text></view> 
+        <view class="but {{tabArr.curHdIndex=='2'? 'active' : ''}}" id="2"  data-id="2" bindtap="tab">杂说日立<text class="i"></text></view> 
+        </view> 
+        <view class="tab-txt"> 
+          <view class="txt-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+              <template is="wxParse" data="{{wxParseData:article1.nodes}}"/>
+            <!-- <view class="title">
+              <text class="i"></text>
+              <text class="h5">{{product.qsrlTitle}}</text>
+              <text class="i"></text>
+            </view>
+            <view class="qsrl">
+              <view class="video">
+                <video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></video>
+              </view>
+              <view class="title">
+                <text class="i"></text>
+                <text class="h5">{{product.qsrl.title}}</text>
+                <text class="i"></text>
+              </view>
+              <view class="history">
+                <block wx:for="{{product.qsrl.history}}" wx:key="">
+                  <view class="li">
+                    <view class="time">{{item.time}}</view>
+                    <text class="txt">{{item.txt}}</text>
+                  </view>
+                </block>
+              </view>
+              <view class="detail">
+                <image mode="widthFix" src="{{product.qsrl.detail.image1}}"></image>
+                <text class="span">{{product.qsrl.detail.txt1}}</text>
+                <view class="title">
+                  <text class="i"></text>
+                  <text class="h5">{{product.qsrl.detail.title}}</text>
+                  <text class="i"></text>
+                </view>
+                <image mode="widthFix" src="{{product.qsrl.detail.image2}}"></image>
+                <text class="h6">{{product.qsrl.detail.txt2}}</text>
+              </view>
+            </view>
+            -->
+          </view> 
+          <view class="txt-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+          
+            <template is="wxParse" data="{{wxParseData:article2.nodes}}"/>
+            <!-- <view class="rlcp">
+              <block wx:for="{{product.rlcp}}" wx:key="">
+                <view class="title">
+                  <text class="i"></text>
+                  <text class="h5">{{item.title}}</text>
+                  <text class="i"></text>
+                </view>
+                <view class="detail">
+                  <text class="span">{{item.span}}</text>
+                  <view class="ul">
+                    <block wx:for="{{item.ul}}" wx:key="">
+                      <view class="li">
+                        <image class="image" mode="widthFix" src="{{item.image}}"></image>
+                        <view class="txt">
+                          <view class="time">{{item.time}}</view>
+                          <text class="span">{{item.span}}</text>
+                        </view>
+                      </view>
+                    </block>
+                  </view>
+                  <image mode="widthFix" src="{{item.image}}"></image>
+                </view>
+              </block>
+            </view> -->
+          </view> 
+          <view class="txt-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
+             <template is="wxParse" data="{{wxParseData:article3.nodes}}"/>
+            <!-- <view class="title">
+              <text class="i"></text>
+              <text class="h5">{{product.zsrlTitle}}</text>
+              <text class="i"></text>
+            </view>
+            <view class="zsrl">
+              <view class="ul">
+                <block wx:for="{{product.zsrl}}" wx:key="">
+                  <view class="li">
+                    <image src="{{item.image}}"></image>
+                    <view class="txt">
+                      <text class="h6">{{item.h6}}</text>
+                      <text class="span">{{item.span}}</text>
+                      <view class="look">
+                        <text class="look-number">{{item.lookNumber}}</text>
+                        <text class="look-detail">详情</text>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view class="title">
+              <text class="i"></text>
+              <text class="h5">精工安装</text>
+              <text class="i"></text>
+            </view>
+            <view class="img-box">
+              <image mode="widthFix" src="/image/image-3.png"></image>
+              <image mode="widthFix" src="/image/image-4.png"></image>
+            </view>
+            <view class="title">
+              <text class="i"></text>
+              <text class="h5">请您选择出3项日立中央空\n调运行调试完善项目</text>
+              <text class="i"></text>
+            </view>
+            <view class="img-box">
+              <image mode="widthFix" src="/image/image-5.png"></image>
+              <view class="ul">
+                <view class="li">
+                  <text class="txt">文字内容</text>
+                </view>
+                <view class="li active">
+                  <text class="txt">文字内容</text>
+                </view>
+                <view class="li active">
+                  <text class="txt">文字内容</text>
+                </view>
+                <view class="li active">
+                  <text class="txt">文字内容</text>
+                </view>
+                <view class="li">
+                  <text class="txt">文字内容</text>
+                </view>
+                <view class="li">
+                  <text class="txt">文字内容</text>
+                </view>
+                <view class="li">
+                  <text class="txt">文字内容</text>
+                </view>
+                <view class="li">
+                  <text class="txt">文字内容</text>
+                </view>
+              </view>
+            </view> -->
+
+          </view>
+        </view>
+    </view> 
+  </view>
+</view>
+<view class="right-nav">
+    <view class="but">
+      <view bindtap="callphone">
+        <image class="image" mode='widthFix' src="/image/nav-icon1.png"></image>
+      </view>
+      <view bindtap="callphone">
+        <image class="image" mode='widthFix' src="/image/nav-icon2.png"></image>
+      </view>
+    </view>
+  </view>

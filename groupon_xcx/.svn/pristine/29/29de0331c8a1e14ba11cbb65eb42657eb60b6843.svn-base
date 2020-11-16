@@ -1,0 +1,152 @@
+// pages/index/index-join-group/index-join-group.js
+var app = getApp();
+const base_url = app.d.base_url;
+var warnImg = '/image/tishi.png';
+var item_id = '';
+var parent_id='0';
+var timer='';
+var group_detail = function (that) {
+  // console.log(item_id);
+  wx.request({
+    url: base_url + 'napi/groupon_detail/' + item_id + '?sid=' + app.d.sid,
+    data: {},
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded',
+      'Cookie': 'ci_session=' + app.d.sid
+    },
+    success: function (res) {
+      console.log(res);
+      if (res.data.success) {
+        that.setData({
+          group_info: res.data.data.groupon_info,
+          product_info: res.data.data.product_info,
+          user_path_list: res.data.data.user_path_list
+        })
+
+        clearInterval(timer);
+      } else {
+        wx.showToast({
+          title: res.data.message,
+          image: warnImg,
+          duration: 1000
+        });
+      }
+    },
+    fail: function (e) {
+      wx.showToast({
+        title: '网络异常！',
+        image: warnImg,
+        duration: 1000
+      });
+    }
+  });
+}
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    flag: true,
+    user_path_list: [],
+    product_info: [],
+    group_info: [],
+    numbers:5
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    app.d.parent_id = options.parent_id
+    // console.log(app.d.parent_id)
+    // console.log(app.d.sid);
+    
+    item_id = options.item_id;
+    var that = this;
+    timer = setInterval(function(){
+      if (app.d.sid != null && app.d.sid != '' && app.d.sid != undefined) {
+        group_detail(that);
+      }
+    },500)
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+  numbers_add:function(e){
+    var numbers=this.data.numbers+6
+    this.setData({
+      numbers: numbers
+    })
+  },
+  shopping: function (e) {
+    var is_deposit = e.currentTarget.dataset.is_deposit;
+    var groupon_id = e.currentTarget.dataset.groupon_id;
+
+    wx.navigateTo({
+      url: '../index-detail/index-detail?groupon_id=' + groupon_id
+    })
+  },
+  to_index_detail: function (e) {
+    var groupon_id = e.currentTarget.dataset.groupon_id;
+    wx.navigateTo({
+      url: '../index-detail/index-detail?item_id=' + groupon_id
+    })
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    var that = this
+    setTimeout(function () {
+      that.setData({
+        flag: false
+      });
+    }, 3000)
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '拼团详情',
+      path: 'pages/index/index-join-group/index-join-group?item_id=' + groupon_id + '&&parent_id=' + app.d.user_id
+
+    }
+  }
+})

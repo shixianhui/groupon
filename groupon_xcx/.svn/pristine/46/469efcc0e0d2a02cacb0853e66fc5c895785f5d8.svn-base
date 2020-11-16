@@ -1,0 +1,6 @@
+/* pages/center/about/about.wxss */
+.main{padding: 0 30rpx;}
+.main image{width: 100%;}
+.main .txt-box{padding:40rpx 56rpx 60rpx;text-align: center;}
+.main .h5{font-size: 32rpx;color: #333333;display: block;font-weight: bold;padding-bottom: 10rpx;}
+.main .span{font-size: 24rpx;color: #666666;}

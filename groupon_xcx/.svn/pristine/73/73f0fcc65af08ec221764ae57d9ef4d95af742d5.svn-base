@@ -1,0 +1,252 @@
+<!--pages/center/order/order.wxml-->
+<view class="main">
+  <view class="menu">
+  <view wx:for="{{navbar}}" data-idx="{{index}}" data-value="{{item.value}}" class="but {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item.name}}<text class="i"></text></view>
+    <!-- <view class="but active">待付款<text class="i"></text></view>
+    <view class="but">拼团中<text class="i"></text></view>
+    <view class="but">拼团成功<text class="i"></text></view>
+    <view class="but">售后/退款<text class="i"></text></view> -->
+
+  </view>
+  <view class="detail">
+    <block wx:if="{{list !='' && list !=null && list !=undefined}}">
+    <view wx:if="{{s=='a'}}" wx:for="{{list}}" wx:key="" class="li">
+      <view class="title">
+        <text class="time">{{item.add_time_format}}</text>
+        <text class="txt">限时拼团</text>
+      </view>
+      <view class="prd-info" data-info="{{item}}" data-item_id="{{item.groupon_id}}">
+        <image class="image" mode='widthFix' src="{{item.product_info.path_thumb}}"></image>
+        <view class="txt-box">
+          <text class="h5">{{item.product_info.title}}</text>
+          <text class="span">{{item.product_info.content_short}}</text>
+          <view class="money">
+            <text class="one">¥{{item.product_info.cur_price}}</text>
+            <text class="two">¥{{item.product_info.market_price}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="img-box">
+          <image wx:for="{{item.user_path_list}}" wx:if="{{index<3}}" wx:key="" class="image" src="{{item}}"></image>
+        </view>
+        <view class="pay-box">
+          <view class="total">合计:<text class="money">¥{{item.total}}</text></view>
+          <view class="pay" bindtap="pay_all" data-info="{{item}}">支付</view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{s=='b'}}" class="li" wx:for="{{list}}" wx:key="">
+      <view class="title">
+        <text class="red-title" wx:if="{{item.surplus_people}}">还差{{item.surplus_people}}人成团，加油哦！</text>
+        <text class="red-title" wx:else>加油哦！</text>
+        <text class="time">{{item.add_time_format}}</text>
+      </view>
+      <view class="prd-info" bindtap="to_order_view" data-info="{{item}}" data-item_id="{{item.groupon_id}}">
+        <image class="image" mode='widthFix' src="{{item.product_info.path_thumb}}"></image>
+        <view class="txt-box">
+          <text class="h5">{{item.product_info.title}}</text>
+          <text class="span">{{item.product_info.content_short}}</text>
+          <view class="money">
+            <text class="one">¥{{item.product_info.cur_price}}</text>
+            <text class="two">¥{{item.product_info.market_price}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="img-box">
+          <image wx:for="{{item.user_path_list}}" wx:if="{{index<3}}" wx:key="" class="image" src="{{item}}"></image>
+        </view>
+        <view class="pay-box">
+          <view class="group-info" bindtap="to_order_view" data-info="{{item}}">拼团详情</view>
+          <button class="invitation" data-info="{{item}}" open-type="share" >邀请好友</button>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{s=='c'}}" wx:for="{{list}}" wx:key="" class="li">
+      <view class="title">
+        <text class="red-title">拼团结束，日立感谢您的支持</text>
+        <text class="time">{{item.add_time_format}}</text>
+      </view>
+      <view class="prd-info" bindtap="{{item.order_type == '1'?'to_order_view':''}}" data-info="{{item}}" data-item_id="{{item.groupon_id}}">
+        <image class="image" mode='widthFix' src="{{item.product_info.path_thumb}}"></image>
+        <view class="txt-box">
+          <text class="h5">{{item.product_info.product_title}}</text>
+          <text class="span">{{item.product_info.content_short}}</text>
+          <view class="money">
+            <text class="one">¥{{item.product_info.buy_price}}</text>
+            <text class="two">¥{{item.product_info.market_price}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="img-box">
+        </view>
+        <view class="pay-box">
+          <!-- <view wx:if="{{item.order_type == '1'}}" class="group-info" bindtap="to_order_view" data-info="{{item}}" data-item_id="{{item.groupon_id}}">拼团详情</view> -->
+          <view class="group-info" bindtap="open_show" data-order_id="{{item.id}}" wx:if="{{item.is_exchange!=1}}" >申请退款</view>
+          <view class="total" wx:if="{{item.is_exchange==1}}">已申请退款</view>
+          <view class="invitation" bindtap="to_index_detail" data-item_id="{{item.groupon_id}}">再次拼团</view>
+        </view>
+      </view>
+    </view>
+    <view class="li" wx:if="{{s=='d'}}" wx:for="{{list}}" wx:key="" class="li">
+      <view class="title">
+        <text class="red-title">感谢您的支持！</text>
+        <text class="time">{{item.add_time_format}}</text>
+      </view>
+      <view class="prd-info">
+        <image class="image" mode='widthFix' src="{{item.product_info.path_thumb}}"></image>
+        <view class="txt-box">
+          <text class="h5">{{item.product_info.product_title}}</text>
+          <text class="span">{{item.product_info.content_short}}</text>
+          <view class="money">
+            <text class="one">¥{{item.product_info.buy_price}}</text>
+            <text class="two">¥{{item.product_info.market_price}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="img-box">
+        </view>
+        <view class="pay-box">
+          <view class="total">{{item.status_format}}</view>
+          <view class="invitation" bindtap="callphone">联系客服</view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="li">
+      <view class="title">
+        <text class="red-title">感谢您的支持！</text>
+        <text class="time">2018-07-09 11:35</text>
+      </view>
+      <view class="prd-info">
+        <image class="image" mode='widthFix' src="/image/image-6.png"></image>
+        <view class="txt-box">
+          <text class="h5">日立EX-PRO系列变频中央空调家用一拖三四五</text>
+          <text class="span">90-110方经典户型 超值套餐</text>
+          <view class="money">
+            <text class="one">¥39600</text>
+            <text class="two">¥42000</text>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="img-box">
+        </view>
+        <view class="pay-box">
+          <view class="group-info">联系客服</view>
+          <view class="invitation">申请退款</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="li">
+      <view class="title">
+        <text class="red-title">感谢您的支持！</text>
+        <text class="time">2018-07-09 11:35</text>
+      </view>
+      <view class="prd-info">
+        <image class="image" mode='widthFix' src="/image/image-6.png"></image>
+        <view class="txt-box">
+          <text class="h5">日立EX-PRO系列变频中央空调家用一拖三四五</text>
+          <text class="span">90-110方经典户型 超值套餐</text>
+          <view class="money">
+            <text class="one">¥39600</text>
+            <text class="two">¥42000</text>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="img-box">
+        </view>
+        <view class="pay-box">
+          <view class="group-info">正在退款</view>
+          <view class="invitation">查看流程</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="li">
+      <view class="title">
+        <text class="red-title">感谢您的支持！</text>
+        <text class="time">2018-07-09 11:35</text>
+      </view>
+      <view class="prd-info">
+        <image class="image" mode='widthFix' src="/image/image-6.png"></image>
+        <view class="txt-box">
+          <text class="h5">日立EX-PRO系列变频中央空调家用一拖三四五</text>
+          <text class="span">90-110方经典户型 超值套餐</text>
+          <view class="money">
+            <text class="one">¥39600</text>
+            <text class="two">¥42000</text>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="img-box">
+        </view>
+        <view class="pay-box">
+          <view class="group-info">详情</view>
+          <view class="invitation">已退款</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="li">
+      <view class="title">
+        <text class="red-title">感谢您的支持！</text>
+        <text class="time">2018-07-09 11:35</text>
+      </view>
+      <view class="prd-info">
+        <image class="image" mode='widthFix' src="/image/image-6.png"></image>
+        <view class="txt-box">
+          <text class="h5">日立EX-PRO系列变频中央空调家用一拖三四五</text>
+          <text class="span">90-110方经典户型 超值套餐</text>
+          <view class="money">
+            <text class="one">¥39600</text>
+            <text class="two">¥42000</text>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="img-box">
+        </view>
+        <view class="pay-box">
+          <view class="group-info">详情</view>
+          <view class="group-info">已退款</view>
+        </view>
+      </view>
+    </view> -->
+    </block>
+
+    <view wx:else class="no-order">
+      <image class="image" src="/image/order-icon4.png"></image>
+      <text class="span">还没有相关拼团哦</text>
+      <text class="but-s" bindtap="gotoindex">立即开团</text>
+    </view>
+
+  </view>
+</view>
+<view class="m {{show}}">
+  <view class="txt-box">
+    <view class="txt">
+      <text class="h4">感谢您对日立的信任</text>
+    </view>
+    <view class="txt">
+      <text class="h5">您的退款申请将在7个工作日内返还到您的账户,如有疑问请拨打400-618-8800</text>
+    </view>
+    <view class="but-box">
+      <view class="but" bindtap="to_apply_exchange">确定退款</view>
+      <view class="but" bindtap="close_show">暂不退款</view>
+    </view>
+  </view>
+</view>
+
+<view class="body-view">
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+  </view>

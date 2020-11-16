@@ -1,0 +1,68 @@
+<!--pages/index/index-detail/settlement/settlement.wxml-->
+<view class="main">
+  <view wx:if="{{address_info!='' && address_info!=null && address_info!=undefined}}" class="top" bindtap="gotoaddress">
+    <view class="title">
+      <image class="image" src="/image/settlement-icon1.png"></image>
+      <view class="txt-box">
+        <view class="name">
+          <text class="h5">收货人:{{address_info.buyer_name}}</text>
+          <text class="phone">{{address_info.mobile}}</text>
+        </view>
+        <!-- <text class="span">您还没有添加地址哦！</text> -->
+        <text class="add">{{address_info.txt_address}}{{address_info.address}}</text>
+      </view>
+    </view>
+    <view class="add-list">
+      <image class="image" src="/image/settlement-icon2.png"></image>
+    </view>
+  </view>
+  <view wx:else class="top" bindtap="gotoaddress">
+      <text class="span">您还没有添加地址哦！</text>
+      <!-- <text class="add">{{address_info.txt_address}}{{address_info.address}}</text> -->
+  </view>
+  <view class="order-info">
+    <view class="title">
+      <text class="h5">订单信息</text>
+    </view>
+    <view class="info">
+      <image class="image" src="{{product_info.path_thumb}}"></image>
+      <view class="txt-box">
+        <text class="h5">{{product_info.title}}</text>
+        <text class="span">{{product_info.content_short}}</text>
+        <text class="money">¥{{product_info.cur_price}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="payment">
+    <view class="title">支付方式</view>
+    <view class="wxpay">
+      <view class="img-box">
+        <image class="image" src="/image/wx.png"></image>
+        <view class="txt-box">
+          <text class="h5">微信支付</text>
+          <text class="span">推荐已在微信中绑定银行卡用户使用</text>
+        </view>
+      </view>
+      <view class="radio">
+        <radio bindtap="checked" checked="checked" value="wxpay" color="#ff4912"></radio>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{is_deposit=='0' || order_record_id !='0' || is_buy!='0'}}" class="remarks">
+    <text class="h5">备注</text>
+    <input bindinput="input" type="text" placeholder=""></input>
+  </view>
+  <view class="place-order">
+    <text class="h6">付款后，我们会立刻与您确认订单</text>
+    <text class="total">合计:<text class="money">¥{{total}}</text></text>
+    <text bindtap="add_order" class="but" data-order_record_id="{{order_record_id}}" >提交订单</text>
+  </view>
+</view>
+<!-- <view class="m">
+  <view class="txt-box">
+    <view class="txt">
+      <text class="h5">我们的线下客服人员将在两个小时内与您核实订单</text>
+    </view>
+    <view class="but">确定</view>
+  </view>
+</view> -->
